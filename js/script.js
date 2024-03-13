@@ -55,23 +55,23 @@
   // 選取bgs元素
   const bgs = document.querySelectorAll(".bg");
   // 得到隨機數fn
-  const random = (min, max) => Math.trunc(Math.random() * (max - min) + min);
+  const random = () => Math.trunc(Math.random() * 2000) - 1000;
 
   // 創建timeline
   const tl = gsap.timeline({
     repeat: -1, // 无限循环
-    repeatDelay: 5, // 重复之间的延迟为5秒
+    repeatDelay: 3, // 重复之间的延迟为5秒
     yoyo: true, // 允许动画倒放回去，创建更流畅的循环效果
   });
 
   // 初始狀態  // 本质上就是duration为0的 .to 方法
   bgs.forEach(function (el) {
     tl.set(el, {
-      x: `+= ${random(-1200, 1200)}`,
-      y: `+= ${random(-1200, 1200)}`,
+      x: `+= ${random()}`,
+      y: `+= ${random()}`,
       // rotation: "+=" + random(-720, 720),
       scale: 0,
-      opacity: 0,
+      opacity: 1,
     });
   });
 
@@ -82,9 +82,9 @@
     opacity: 1,
     scale: 1,
     rotation: 0,
-    ease: "power4.out",
-    stagger: 0.00125,
-    duration: 3,
+    ease: "power4.in",
+    // stagger: 0.00125,
+    duration: 1,
   };
 
   tl.to(".bg", animateResult).delay(0);
@@ -95,11 +95,17 @@
     },
     maintainTo: {
       opacity: 1,
-      duration: 3,
+      duration: 1,
       ease: "power4.Out",
     },
   };
 
-  const tlFont = gsap.timeline({ repeat: -1, repeatDelay: 3, yoyo: true });
-  tlFont.fromTo(".maintain", maintain.maintainFrom, maintain.maintainTo, 2);
+  const tlFont = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 2,
+    yoyo: true,
+  });
+
+  tlFont.fromTo(".maintain", maintain.maintainFrom, maintain.maintainTo, 1);
+
 })();
