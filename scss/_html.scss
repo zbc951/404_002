@@ -314,7 +314,7 @@ html {
             height: 150px;
             object-fit: contain;
             position: absolute;
-            animation:  bounceX 5s linear 0s infinite , bounceY 3s linear 0s infinite, rotateXY 3s linear 0s infinite;
+            animation: bounceX 5s ease-in 0s infinite, bounceY 3s linear 0s infinite, rotateXY 3s linear 0s infinite alternate;
 
             @keyframes bounceX {
 
@@ -342,11 +342,11 @@ html {
 
             @keyframes rotateXY {
                 0% {
-                    transform: rotate(0);
+                    transform: rotate(0) scale(0.5);
                 }
 
                 100% {
-                    transform: rotate(360deg);
+                    transform: rotate(360deg) scale(1);
                 }
             }
         }
