@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // 整理
 // gsap.to()  这是一种最常用的tween动画，就是让元素从初始状态变化到目标状态。  //gsap.to(".circle", { x: 40, fill: 'blue', });
@@ -52,16 +52,17 @@
 // tween.kill();
 
 (() => {
+  // 背景
   // 選取bgs元素
-  const bgs = document.querySelectorAll(".bg");
+  const bgs = document.querySelectorAll('.bg');
   // 得到隨機數fn
   const random = () => Math.trunc(Math.random() * 2000) - 1000;
 
   // 創建timeline
   const tl = gsap.timeline({
-    repeat: -1, // 无限循环
+    repeat: 0, // 无限循环
     repeatDelay: 3, // 重复之间的延迟为5秒
-    yoyo: true, // 允许动画倒放回去，创建更流畅的循环效果
+    yoyo: false, // 允许动画倒放回去，创建更流畅的循环效果
   });
 
   // 初始狀態  // 本质上就是duration为0的 .to 方法
@@ -82,12 +83,12 @@
     opacity: 1,
     scale: 1,
     rotation: 0,
-    ease: "power4.in",
+    ease: 'power4.in',
     // stagger: 0.00125,
     duration: 1,
   };
 
-  tl.to(".bg", animateResult).delay(0);
+  tl.to('.bg', animateResult).delay(0);
 
   const maintain = {
     maintainFrom: {
@@ -96,16 +97,51 @@
     maintainTo: {
       opacity: 1,
       duration: 1,
-      ease: "power4.Out",
+      ease: 'power4.Out',
     },
   };
 
   const tlFont = gsap.timeline({
-    repeat: -1,
+    repeat: 0,
     repeatDelay: 2,
-    yoyo: true,
+    yoyo: false,
   });
 
-  tlFont.fromTo(".maintain", maintain.maintainFrom, maintain.maintainTo, 1);
-
+  tlFont.fromTo('.maintain', maintain.maintainFrom, maintain.maintainTo, 1);
 })();
+
+(() => {
+  // 足球
+  const tl = gsap.timeline({
+    repeat: 0,
+    repeatDelay: 0,
+    yoyo: false,
+  });
+  tl.set('.football', {
+    opacity: 0,
+  });
+  tl.to(
+    '.football',
+    {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power4.in',
+    },
+    3
+  );
+})();
+
+// (() => {
+//   const body = document.querySelector('body');
+
+//   // 判斷有無class
+//   const toggleActive = function (el) {
+//     !el.classList.contains('active')
+//       ? el.classList.add('active')
+//       : el.classList.remove('active');
+//   };
+
+//   // hover觸發
+//   toggleActive(body);
+//   setInterval(() => toggleActive(body), 5000);
+// })();
