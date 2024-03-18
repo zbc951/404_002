@@ -356,8 +356,8 @@ html body .football {
   -o-object-fit: contain;
      object-fit: contain;
   position: absolute;
-  -webkit-animation: bounceX 5s ease-in 0s infinite, bounceY 3s linear 0s infinite, rotateXY 3s linear 0s infinite alternate;
-          animation: bounceX 5s ease-in 0s infinite, bounceY 3s linear 0s infinite, rotateXY 3s linear 0s infinite alternate;
+  -webkit-animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 2s linear 0s infinite alternate;
+          animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 2s linear 0s infinite alternate;
 }
 @-webkit-keyframes bounceX {
   0%, 100% {
