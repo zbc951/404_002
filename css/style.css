@@ -114,7 +114,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 html {
   width: 100%;
   height: 100%;
-  background: #f1f6fb;
+  background: #6fb05e;
 }
 html body {
   width: 100%;
@@ -125,10 +125,14 @@ html body {
   margin: auto;
   overflow: hidden;
 }
-html body main {
-  padding: 60px 0;
+html body .app {
+  width: auto;
+  height: auto;
 }
-html body main .maintain {
+html body main {
+  padding: 50px 0;
+}
+html body main .maintain .maintainTitle {
   width: 620px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,240 +143,273 @@ html body main .maintain {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 auto 40px;
+  margin: 0 auto 38px;
   position: relative;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
-html body main .maintain .logo {
+html body main .maintain .maintainTitle .logo {
   width: 122px;
   height: 153px;
-  margin-right: 30px;
+  padding-top: 4px;
+  margin-right: 23px;
 }
-html body main .maintain .logo > img {
+html body main .maintain .maintainTitle .logo > img {
   -o-object-fit: contain;
      object-fit: contain;
 }
-html body main .maintain .maintainTextBox {
+html body main .maintain .maintainTitle .maintainTextBox {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-html body main .maintain .maintainTextBox .maintainText {
+html body main .maintain .maintainTitle .maintainTextBox .maintainText {
   font-weight: bold;
+  text-align: center;
 }
-html body main .maintain .maintainTextBox .maintainText.maintainText--en {
+html body main .maintain .maintainTitle .maintainTextBox .maintainText.maintainText--en {
   color: #d22442;
-  font-size: 20px;
-  margin-bottom: 17px;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
-html body main .maintain .maintainTextBox .maintainText.maintainText--ch {
+html body main .maintain .maintainTitle .maintainTextBox .maintainText.maintainText--ch {
   color: #252525;
   font-family: "myCustomFont";
 }
-html body main .maintain .maintainTextBox .maintainText.maintainText--ch.maintainText--ch__top {
-  font-size: 64px;
-  margin-bottom: 17px;
+html body main .maintain .maintainTitle .maintainTextBox .maintainText.maintainText--ch.maintainText--ch__top {
+  font-size: 71px;
+  margin-bottom: 12px;
 }
-html body main .maintain .maintainTextBox .maintainText.maintainText--ch.maintainText--ch__bottom {
-  font-size: 40px;
+html body main .maintain .maintainTitle .maintainTextBox .maintainText.maintainText--ch.maintainText--ch__bottom {
+  font-size: 42px;
 }
-html body main .maintainInfo {
+html body main .maintain .maintainInfo {
   color: #252525;
   font-size: 24px;
   text-align: center;
 }
-html body .bgBox {
+html body .filter {
+  max-width: 1920px;
+  max-height: 1000px;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: -1;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -999;
   pointer-events: none;
 }
-html body .bgBox .bg {
+html body .filter .bg {
+  background: url("../img/bg.png") no-repeat top center;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -99;
+  z-index: -998;
 }
-html body .bgBox .bg.bg--02 {
-  background: url("../img/bg2.png") no-repeat;
+html body .filter .footballBox {
+  background: url("../img/footballBox.png") no-repeat;
+  background-size: contain;
+  width: 622px;
+  height: 372px;
+  position: absolute;
+  top: 292px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -997;
+  -webkit-animation: jello 1.1s ease-in-out 1.6s 1 normal forwards;
+          animation: jello 1.1s ease-in-out 1.6s 1 normal forwards;
+}
+@-webkit-keyframes jello {
+  0%, 11.1%, to {
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
+  22.2% {
+    -webkit-transform: translateX(-50%) skewX(-12.5deg) skewY(-12.5deg);
+            transform: translateX(-50%) skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    -webkit-transform: translateX(-50%) skewX(6.25deg) skewY(6.25deg);
+            transform: translateX(-50%) skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    -webkit-transform: translateX(-50%) skewX(-3.125deg) skewY(-3.125deg);
+            transform: translateX(-50%) skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    -webkit-transform: translateX(-50%) skewX(1.5625deg) skewY(1.5625deg);
+            transform: translateX(-50%) skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    -webkit-transform: translateX(-50%) skewX(-0.78125deg) skewY(-0.78125deg);
+            transform: translateX(-50%) skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    -webkit-transform: translateX(-50%) skewX(0.390625deg) skewY(0.390625deg);
+            transform: translateX(-50%) skewX(0.390625deg) skewY(0.390625deg);
+  }
+  88.8% {
+    -webkit-transform: translateX(-50%) skewX(-0.1953125deg) skewY(-0.1953125deg);
+            transform: translateX(-50%) skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+@keyframes jello {
+  0%, 11.1%, to {
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
+  22.2% {
+    -webkit-transform: translateX(-50%) skewX(-12.5deg) skewY(-12.5deg);
+            transform: translateX(-50%) skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    -webkit-transform: translateX(-50%) skewX(6.25deg) skewY(6.25deg);
+            transform: translateX(-50%) skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    -webkit-transform: translateX(-50%) skewX(-3.125deg) skewY(-3.125deg);
+            transform: translateX(-50%) skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    -webkit-transform: translateX(-50%) skewX(1.5625deg) skewY(1.5625deg);
+            transform: translateX(-50%) skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    -webkit-transform: translateX(-50%) skewX(-0.78125deg) skewY(-0.78125deg);
+            transform: translateX(-50%) skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    -webkit-transform: translateX(-50%) skewX(0.390625deg) skewY(0.390625deg);
+            transform: translateX(-50%) skewX(0.390625deg) skewY(0.390625deg);
+  }
+  88.8% {
+    -webkit-transform: translateX(-50%) skewX(-0.1953125deg) skewY(-0.1953125deg);
+            transform: translateX(-50%) skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+html body .filter .lawn {
+  background: url("../img/lawn.png") no-repeat;
   background-position: top center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -996;
 }
-html body .bgBox .bg.bg--03 {
-  background: url("../img/bg3.png") no-repeat;
-  background-position: top center;
+html body .filter .carCenter {
+  background: url("../img/carCenter.png") no-repeat;
+  background-size: contain;
+  width: 1102px;
+  height: 356px;
+  position: absolute;
+  top: 329px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -990;
 }
-html body .bgBox .bg.bg--04 {
-  background: url("../img/bg4.png") no-repeat;
-  background-position: top center;
+html body .filter .carLeft {
+  background: url("../img/carLeft.png") no-repeat;
+  background-size: contain;
+  width: 1102px;
+  height: 356px;
+  position: absolute;
+  top: 329px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -990;
+  -webkit-animation: bounceInLeft 1s ease-in-out 0s 2 alternate forwards;
+          animation: bounceInLeft 1s ease-in-out 0s 2 alternate forwards;
 }
-html body .bgBox .bg.bg--05 {
-  background: url("../img/bg5.png") no-repeat;
-  background-position: top center;
+@-webkit-keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translate3d(-3000px, 0, 0) scaleX(3);
+            transform: translateX(-50%) translate3d(-3000px, 0, 0) scaleX(3);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translate3d(25px, 0, 0) scaleX(1);
+            transform: translateX(-50%) translate3d(25px, 0, 0) scaleX(1);
+  }
+  75% {
+    -webkit-transform: translateX(-50%) translate3d(-10px, 0, 0) scaleX(0.98);
+            transform: translateX(-50%) translate3d(-10px, 0, 0) scaleX(0.98);
+  }
+  90% {
+    -webkit-transform: translateX(-50%) translate3d(5px, 0, 0) scaleX(0.995);
+            transform: translateX(-50%) translate3d(5px, 0, 0) scaleX(0.995);
+  }
+  to {
+    nsform: translateZ(0);
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
 }
-html body .bgBox .bg.bg--06 {
-  background: url("../img/bg6.png") no-repeat;
-  background-position: top center;
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translate3d(-3000px, 0, 0) scaleX(3);
+            transform: translateX(-50%) translate3d(-3000px, 0, 0) scaleX(3);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translate3d(25px, 0, 0) scaleX(1);
+            transform: translateX(-50%) translate3d(25px, 0, 0) scaleX(1);
+  }
+  75% {
+    -webkit-transform: translateX(-50%) translate3d(-10px, 0, 0) scaleX(0.98);
+            transform: translateX(-50%) translate3d(-10px, 0, 0) scaleX(0.98);
+  }
+  90% {
+    -webkit-transform: translateX(-50%) translate3d(5px, 0, 0) scaleX(0.995);
+            transform: translateX(-50%) translate3d(5px, 0, 0) scaleX(0.995);
+  }
+  to {
+    nsform: translateZ(0);
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
 }
-html body .bgBox .bg.bg--07 {
-  background: url("../img/bg7.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--08 {
-  background: url("../img/bg8.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--09 {
-  background: url("../img/bg9.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--10 {
-  background: url("../img/bg10.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--11 {
-  background: url("../img/bg11.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--12 {
-  background: url("../img/bg12.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--13 {
-  background: url("../img/bg13.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--14 {
-  background: url("../img/bg14.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--15 {
-  background: url("../img/bg15.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--16 {
-  background: url("../img/bg16.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--17 {
-  background: url("../img/bg17.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--18 {
-  background: url("../img/bg18.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--19 {
-  background: url("../img/bg19.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--20 {
-  background: url("../img/bg20.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--21 {
-  background: url("../img/bg21.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--22 {
-  background: url("../img/bg22.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--23 {
-  background: url("../img/bg23.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--24 {
-  background: url("../img/bg24.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--25 {
-  background: url("../img/bg25.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--26 {
-  background: url("../img/bg26.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--27 {
-  background: url("../img/bg27.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--28 {
-  background: url("../img/bg28.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--29 {
-  background: url("../img/bg29.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--30 {
-  background: url("../img/bg30.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--31 {
-  background: url("../img/bg31.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--32 {
-  background: url("../img/bg32.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--33 {
-  background: url("../img/bg33.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--34 {
-  background: url("../img/bg34.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--35 {
-  background: url("../img/bg35.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--36 {
-  background: url("../img/bg36.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--37 {
-  background: url("../img/bg37.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--38 {
-  background: url("../img/bg38.png") no-repeat;
-  background-position: top center;
-}
-html body .bgBox .bg.bg--39 {
-  background: url("../img/bg39.png") no-repeat;
-  background-position: top center;
-}
-html body .football {
+html body .filter .football {
   width: 150px;
   height: 150px;
   -o-object-fit: contain;
      object-fit: contain;
   position: absolute;
-  -webkit-animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 2s linear 0s infinite alternate;
-          animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 2s linear 0s infinite alternate;
+  -webkit-animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 1.5s linear 0s infinite alternate forwards;
+          animation: bounceX 4.5s ease-in 0s infinite, bounceY 2.5s linear 0s infinite, rotateXY 1.5s linear 0s infinite alternate forwards;
 }
 @-webkit-keyframes bounceX {
   0%, 100% {
-    left: 0;
+    right: 0;
   }
   50% {
-    left: calc(100% - 150px);
+    right: calc(100% - 150px);
   }
 }
 @keyframes bounceX {
   0%, 100% {
-    left: 0;
+    right: 0;
   }
   50% {
-    left: calc(100% - 150px);
+    right: calc(100% - 150px);
   }
 }
 @-webkit-keyframes bounceY {
@@ -393,21 +430,41 @@ html body .football {
 }
 @-webkit-keyframes rotateXY {
   0% {
-    -webkit-transform: rotate(0) scale(0.5);
-            transform: rotate(0) scale(0.5);
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
   }
   100% {
-    -webkit-transform: rotate(360deg) scale(1);
-            transform: rotate(360deg) scale(1);
+    -webkit-transform: scale(0.5) rotate(720deg);
+            transform: scale(0.5) rotate(720deg);
   }
 }
 @keyframes rotateXY {
   0% {
-    -webkit-transform: rotate(0) scale(0.5);
-            transform: rotate(0) scale(0.5);
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
   }
   100% {
-    -webkit-transform: rotate(360deg) scale(1);
-            transform: rotate(360deg) scale(1);
+    -webkit-transform: scale(0.5) rotate(720deg);
+            transform: scale(0.5) rotate(720deg);
   }
+}
+html body .filter .footballRight {
+  background: url("../img/footballRight.png") no-repeat top center;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -990;
+}
+html body .filter .explosion {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 384px;
+  height: 368px;
+  position: absolute;
+  top: 505px;
+  left: 300px;
 }
