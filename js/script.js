@@ -29,6 +29,18 @@
   };
   setInterval(resetAnimation, 3000);
 })();
+// 足球動畫間隔
+(() => {
+  const football = document.querySelector('.football');
+
+  const resetAnimation = function () {
+    football.style.animation = 'none';
+    void football.offsetWidth;
+    football.style.animation = 'moveX 1s ease 3s 2 alternate forwards';
+  };
+  // setInterval(resetAnimation, 6000);
+})();
+
 // 車 left位動畫間隔
 (() => {
   const carLeft = document.querySelector('.carLeft');
@@ -36,9 +48,9 @@
     carLeft.style.animation = 'none';
     void carLeft.offsetWidth;
     carLeft.style.animation =
-      'bounceInLeft 1s ease-in-out 0s 2 alternate forwards';
+      'bounceInLeft 1s ease-in-out 0s 2 alternate-reverse backwards';
   };
-  setInterval(resetAnimation, 3000);
+  setInterval(resetAnimation, 10000);
 })();
 // 車 c位動畫間隔
 () => {
@@ -50,7 +62,6 @@
   };
   setInterval(resetAnimation, 2000);
 };
-
 // 煙火生成
 () => {
   // 創建img 生成函數

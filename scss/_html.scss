@@ -186,7 +186,7 @@ html {
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: -990;
-                animation: bounceInLeft 1s ease-in-out 0s 2 alternate forwards;
+                animation: bounceInLeft 1s ease-in-out 0s 1 normal forwards;
 
                 @keyframes bounceInLeft {
 
@@ -225,13 +225,20 @@ html {
             }
 
             .football {
+                filter: drop-shadow(-7px 13px 9px #222);
+                background: url('../img/football.png')no-repeat;
+                background-size: contain;
                 width: 150px;
                 height: 150px;
-                object-fit: contain;
                 position: absolute;
-                animation: bounceX 4.5s ease-in 0s infinite,
-                    bounceY 2.5s linear 0s infinite,
-                    rotateXY 1.5s linear 0s infinite alternate forwards;
+                right: 0;
+                bottom: 0;
+                z-index: -989;
+                // animation: moveX 1s ease 3s 2 alternate forwards;
+                animation: bounce 0.5s cubic-bezier(.5, .2, .8, .8) infinite alternate;
+                // animation: bounceX 4.5s ease-in 0s infinite,
+                //     bounceY 2.5s linear 0s infinite,
+                //     rotateXY 1.5s linear  0s infinite alternate forwards;
 
                 @keyframes bounceX {
 
@@ -264,6 +271,68 @@ html {
 
                     100% {
                         transform: scale(0.5) rotate(720deg);
+                    }
+                }
+
+                @keyframes moveX {
+                    from {
+                        transform: translate(0) rotate(0);
+                    }
+
+                    to {
+                        transform: translate(-1500px) rotate(-720deg);
+                    }
+                }
+
+                @keyframes bounce {
+                    0% {
+                        bottom: 340px;
+                        transform: scale (1, 1);
+                    }
+
+                    10% {
+                        transform: scale(1, 1.1);
+                    }
+
+                    90% {
+                        transform: scale(0.8, 1.3);
+                    }
+
+                    95% {
+                        transform: scale(1.2, 0.8);
+                    }
+
+                    100% {
+                        bottom: 10px;
+                        transform: scale(1.2, 0.6);
+                    }
+                }
+            }
+
+            .shadow {
+                background: #000;
+                width: 150px;
+                height: 40px;
+                border-radius: 100%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                z-index: -990;
+                animation: shadowAni 0.5s cubic-bezier(.5, .2, .8, .8) infinite alternate;
+
+                @keyframes shadowAni {
+                    0% {
+                        bottom: 0;
+                        transform: scale(1.2, 1);
+                        opacity: 0.3;
+                    }
+
+                    95% {
+                        opacity: 0.8;
+                    }
+
+                    100% {
+                        transform: scale(0.8, 0.6);
                     }
                 }
             }
